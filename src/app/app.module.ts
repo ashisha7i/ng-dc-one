@@ -8,13 +8,15 @@ import { RolesService } from './roles.service';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserRolesComponent } from './user-roles/user-roles.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { HomeComponentComponent } from './home-component/home-component.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserSearchComponent,
-    UserRolesComponent
+    UserRolesComponent,
+    HomeComponentComponent
   ],
   imports: [
     BrowserModule,

@@ -15,7 +15,7 @@
       <tr *ngFor='let role of userRoles.roles'>
         <td width="30">{{ role.roleId }}</td>
         <td>{{ role.roleType }}</td>
-        <td>{{ role.roleName }}</td>
+        <td>{{ role.roleName | uppercase }}</td>
       </tr>
     </table>
 </ng-template>
