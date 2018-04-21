@@ -1,16 +1,26 @@
+
 <hr>
-<h4>Found {{ userRoles.roles.length }} Roles for '{{ userRoles.userId }}'</h4>
-<table>
-  <tr>
-    <th>ID</th>
-    <th>ROLE TYPE</th>
-    <th>ROLE NAME</th>
-  </tr>
-  <tr *ngFor='let role of userRoles.roles'>
-    <td width="30">{{ role.roleId }}</td>
-    <td>{{ role.roleType }}</td>
-    <td>{{ role.roleName }}</td>
-  </tr>
- </table>
+<div *ngIf="userRoles.roles.length == 0; else showDetails">
+    <h4>No roles found for '{{ userRoles.userId }}'. Please verify the user id and try again.</h4>
+</div>
+
+<ng-template #showDetails>
+    <h4>Found {{ userRoles.roles.length }} Roles for '{{ userRoles.userId }}'</h4>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>ROLE TYPE</th>
+        <th>ROLE NAME</th>
+      </tr>
+      <tr *ngFor='let role of userRoles.roles'>
+        <td width="30">{{ role.roleId }}</td>
+        <td>{{ role.roleType }}</td>
+        <td>{{ role.roleName }}</td>
+      </tr>
+    </table>
+</ng-template>
+
+
+
 
 
