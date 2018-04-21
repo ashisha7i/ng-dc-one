@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Roles } from '../Roles';
+import { Role } from '../Roles';
 
 @Component({
   selector: 'app-user-search',

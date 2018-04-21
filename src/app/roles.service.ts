@@ -4,17 +4,16 @@ import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
 import { ROLES } from './mock-roles';
-import { Roles } from './Roles';
+import { Role, UserRoles } from './Roles';
 
 @Injectable()
 export class RolesService {
-  private getRolesURL = 'http://localhost:8080/roles?userId=aagnihot';
+  private getRolesURL = 'http://localhost:8080/roles/';
 
   constructor(private http: HttpClient) { }
 
-  getRoles(id: string): Observable<Roles> {
+  getRoles(id: string): Observable<UserRoles> {
     console.log('ID --> ' + id);
-    return this.http.get<Roles>(this.getRolesURL);
-    // return of(this.values);
+    return this.http.get<UserRoles>(this.getRolesURL + id);
   }
 }

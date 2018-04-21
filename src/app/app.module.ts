@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { RolesService } from './roles.service';
 import { UserSearchComponent } from './user-search/user-search.component';
 import { UserRolesComponent } from './user-roles/user-roles.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { UserRolesComponent } from './user-roles/user-roles.component';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [RolesService],
   bootstrap: [AppComponent]

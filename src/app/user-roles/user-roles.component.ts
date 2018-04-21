@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RolesService } from '../roles.service';
 import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
-import { Roles } from '../Roles';
+import { RolesService } from '../roles.service';
+import { Role, UserRoles } from '../Roles';
 
 @Component({
   selector: 'app-user-roles',
@@ -11,17 +12,19 @@ import { Roles } from '../Roles';
 })
 export class UserRolesComponent implements OnInit {
 
-  roles: Roles;
+  userRoles: UserRoles;
 
-  constructor(private rolesService: RolesService) { }
+  constructor(private rolesService: RolesService,
+              private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit() {
     this.getRoles();
   }
 
   getRoles() {
-    const id = 'aagnihot';
-    this.rolesService.getRoles(id).subscribe(roles => { console.log(roles); this.roles = roles;});
+    const id = this.route.snapshot.paramMap.get('id');
+    this.rolesService.getRoles(id).subscribe(userRoles => { console.log(userRoles); this.userRoles = userRoles; });
   }
 
 }
