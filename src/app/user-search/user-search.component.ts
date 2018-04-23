@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Role } from '../Roles';
-
 @Component({
   selector: 'app-user-search',
   templateUrl: './user-search.component.html',
@@ -15,7 +14,8 @@ export class UserSearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  setUser() {
-
+  setUser(userInput: string) {
+    this.user = '';
+    this.user = userInput;
   }
 }

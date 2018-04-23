@@ -1,3 +1,8 @@
 <p>
-  <label>User ID: </label><input> <button (click)='setUser()'>Search</button>
+  <label>User ID: </label><input type='text' #userInput> <button (click)='setUser(userInput.value)'>Search</button>
+
+  <span *ngIf='user'>
+    <br>{{ user }}
+    <app-user-roles [userId]=user></app-user-roles>
+  </span>
 </p>

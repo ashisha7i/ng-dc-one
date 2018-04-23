@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -10,7 +10,10 @@ import { Role, UserRoles } from '../Roles';
   templateUrl: './user-roles.component.html',
   styleUrls: ['./user-roles.component.css']
 })
-export class UserRolesComponent implements OnInit {
+export class UserRolesComponent implements OnInit, OnDestroy {
+
+  @Input()
+  userId: string;
 
   userRoles: UserRoles;
 
@@ -22,9 +25,15 @@ export class UserRolesComponent implements OnInit {
     this.getRoles();
   }
 
-  getRoles() {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.rolesService.getRoles(id).subscribe(userRoles => { console.log(userRoles); this.userRoles = userRoles; });
+  ngOnDestroy() {
+    this.userId = '';
+    this.userRoles = null;
   }
+
+  getRoles() {
+    // const id = this.route.snapshot.paramMap.get('id');
+    this.rolesService.getRoles(this.userId).subscribe(userRoles => { console.log(userRoles); this.userRoles = userRoles; });
+  }
+
 
 }
